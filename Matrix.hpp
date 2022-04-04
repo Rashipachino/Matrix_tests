@@ -46,9 +46,5 @@ namespace zich{
             Matrix& operator*(const Matrix& other);
             friend std::ostream& operator<< (std::ostream& output, const Matrix& mat);
             friend std::istream& operator>> (std::istream& input , Matrix& mat);
-
-
-            
-
     };
 }
