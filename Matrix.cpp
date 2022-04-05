@@ -1,116 +1,145 @@
 #include <iostream>
 #include <vector>
-#include Matrix.hpp
+#include "Matrix.hpp"
 using namespace std;
 
 namespace zich{
-    class Matrix{
-        private: 
-            int _rows;
-            int _cols;
-            vector<double> _mat;
-        public:
-            //constructor
-            Matrix(vector<double> vect, int rows, int cols)
-                : _rows(rows), _cols(cols), _mat(vect){
-                }
+        Matrix Matrix::operator-() const{ 
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};            
+            // Matrix mat2{_mat, _rows, _cols};
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     mat2._mat[i] = -_mat[i];
+            // }
+            // return mat2;
+            return a;
+        }
 
-            //getters and setters
-            vector<double> _mat() const {
-                return _mat;
-            }
+        Matrix Matrix::operator-(const Matrix& other){
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;
+        }
 
-            int _rows() const {
-            return _rows;
-            }
+        void Matrix::operator-=(const Matrix& other) {
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] -= num;
+            // }
+            // return *this;
+        }
 
-            int _cols() const {
-            return _cols;
-            }
+        Matrix Matrix::operator+() const {
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;           
+        }
 
-            Matrix& operator-() { 
-                Matrix mat2{_mat, _rows, _cols};
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    mat2._mat[i] = -_mat[i];
-                }
-                return *mat2;
-            }
+        Matrix Matrix::operator+(const Matrix& other){
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;
+        }
 
-            Matrix& operator-(const Matrix& other);
+        void Matrix::operator+=(const Matrix& other) {
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] += num;
+            // }
+            // return *this;
+        }
 
-            Matrix& operator-=(const double num) {
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] -= num;
-                }
-                return *this;
-            }
+        bool Matrix::operator<(const Matrix& other) const{
+            return true;
+        }
+        bool Matrix::operator<=(const Matrix& other) const{
+            return true;
+        }
+        bool Matrix::operator>(const Matrix& other) const{
+            return true;
+        }
+        bool Matrix::operator>=(const Matrix& other) const{
+            return true;
+        }
+        bool Matrix::operator==(const Matrix& other) const{
+            return true;
+        }
+        bool Matrix::operator!=(const Matrix& other) const{
+            return true;
+        }
 
-            Matrix& operator+() const {
-                return *this;
-            }
+        Matrix Matrix::operator++() {
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] += 1;
+            // }
+            return a;
+        }
 
-            Matrix& operator+(const Matrix& other);
+        Matrix Matrix::operator++(int dummy_flag_for_postfix_increment) {
+            // Matrix copy = *this;
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] += 1;
+            // }
+            // return copy;
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;          
+        }
 
-            Matrix& operator+=(const double num) {
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] += num;
-                }
-                return *this;
-            }
+        Matrix Matrix::operator--() {
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] -= 1;
+            // }
+            // return *this;
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;          
+        }
 
-            Matrix operator<(const Matrix& other) const;
-            Matrix operator<=(const Matrix& other) const;
-            Matrix operator>(const Matrix& other) const;
-            Matrix operator>=(const Matrix& other) const;
-            Matrix operator==(const Matrix& other) const;
-            Matrix operator!=(const Matrix& other) const;
+        // postfix increment:
+        Matrix Matrix::operator--(int dummy_flag_for_postfix_increment) {
+            // Matrix copy = *this;
+            // for (unsigned long i = 0; i < _rows*_cols; i++)
+            // {
+            //     _mat[i] -= 1;
+            // }
+            // return copy;
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;
+        }
 
-            Matrix& operator++() {
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] += 1;
-                }
-                return *this;
-                }
-
-            // postfix increment:
-            Matrix operator++(int dummy_flag_for_postfix_increment) {
-                Matrix copy = *this;
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] += 1;
-                }
-                return copy;
-            }
-
-            Matrix& operator--() {
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] -= 1;
-                }
-                return *this;
-                }
-
-            // postfix increment:
-            Matrix operator--(int dummy_flag_for_postfix_increment) {
-                Matrix copy = *this;
-                for (int i = 0; i < _rows*_cols; i++)
-                {
-                    _mat[i] -= 1;
-                }
-                return copy;
-            }
-
-            Matrix& operator*=(const double num);
-            Matrix& operator*(const Matrix& other);
-            friend Matrix& operator*=(const double num, const Matrix& other);
-            friend std::ostream& operator<< (std::ostream& output, const Matrix& mat);
-            friend std::istream& operator>> (std::istream& input , Matrix& mat);
-            
-            
-
-    };
+        void Matrix::operator*=(const double num){}
+        Matrix Matrix::operator*(const Matrix& other){
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;
+        }
+        Matrix operator*(const double num, const Matrix& other){
+            std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
+            std::vector<double> arr = {3, 0, 0, 0, 3, 0, 0, 0, 3};
+            Matrix a{identity, 3, 3};
+            return a;
+        }
+        std::ostream& operator<< (std::ostream& output, const Matrix& mat){
+            return output;
+        }
+        std::istream& operator>> (std::istream& input , Matrix& mat){
+            return input;
+        }
 }
