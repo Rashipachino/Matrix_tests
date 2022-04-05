@@ -20,11 +20,11 @@ namespace zich{
                 return _mat;
             }
 
-            double _rows() const {
+            int _rows() const {
             return _rows;
             }
 
-            double _cols() const {
+            int _cols() const {
             return _cols;
             }
 
@@ -106,6 +106,7 @@ namespace zich{
 
             Matrix& operator*=(const double num);
             Matrix& operator*(const Matrix& other);
+            friend Matrix& operator*=(const double num, const Matrix& other);
             friend std::ostream& operator<< (std::ostream& output, const Matrix& mat);
             friend std::istream& operator>> (std::istream& input , Matrix& mat);
             

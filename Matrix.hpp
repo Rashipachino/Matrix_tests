@@ -15,15 +15,15 @@ namespace zich{
                 }
 
             //getters and setters
-            vector<double> _mat() const {
+            vector<double> mat() const {
                 return _mat;
             }
 
-            double _rows() const {
+            int rows() const {
             return _rows;
             }
 
-            double _cols() const {
+            int cols() const {
             return _cols;
             }
             Matrix operator-() const;
@@ -43,6 +43,7 @@ namespace zich{
             Matrix& operator--();
             Matrix operator--(int dummy_flag_for_postfix_increment);
             Matrix& operator*=(const double num);
+            friend Matrix& operator*=(const double num, const Matrix& other);
             Matrix& operator*(const Matrix& other);
             friend std::ostream& operator<< (std::ostream& output, const Matrix& mat);
             friend std::istream& operator>> (std::istream& input , Matrix& mat);
